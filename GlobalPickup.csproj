@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>GlobalPickup</AssemblyName>
+    <Product>GlobalPickup</Product>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>GlobalPickup</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Variables">
+    <!-- SET BELOW TO GAME BASE DIRECTORY-->
+    <GameDir>E:\SteamLibrary\steamapps\common\Gunfire Reborn</GameDir>
+    <BepInExDir>$(GameDir)\BepInEx</BepInExDir>
+    <GameLibDir>$(BepInExDir)\interop</GameLibDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameLibDir)/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(GameLibDir)/UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!--Automatic deploy-->
+  <Target Name="Deploy" AfterTargets="Build">
+      <Copy
+          SourceFiles="@(MainAssembly)" DestinationFolder="$(BepInExDir)\plugins"
+      />
+  </Target>
+</Project>
