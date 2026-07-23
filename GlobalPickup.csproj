@@ -5,6 +5,7 @@
     <AssemblyName>GlobalPickup</AssemblyName>
     <Product>GlobalPickup</Product>
     <Version>1.0.0</Version>
+    <BepInExPluginGuid>zeprus.gunfire.globalpickup</BepInExPluginGuid>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
