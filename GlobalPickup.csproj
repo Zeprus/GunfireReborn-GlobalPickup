@@ -30,9 +30,11 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(GameLibDir)/Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>$(GameLibDir)/UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
 
