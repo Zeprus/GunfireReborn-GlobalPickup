@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <!--Automatic deploy-->
-  <Target Name="Deploy" AfterTargets="Build">
+  <Target Name="Deploy" AfterTargets="Build;Publish">
       <Copy
           SourceFiles="@(MainAssembly)" DestinationFolder="$(BepInExDir)\plugins"
       />
